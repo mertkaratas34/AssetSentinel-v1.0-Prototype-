@@ -1,14 +1,14 @@
-# API Keys and Secrets
+
 .env
 
 
-# Python specific
+
 __pycache__/
 *.pyc
 .venv/
 env/
 venv/
 
-# System specific
+
 .DS_Store
 .vscode/
