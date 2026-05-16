@@ -1,4 +1,4 @@
-# 📊 ARDA KOMUT ALLAHININ AMK (Prototype v1.0)
+# 📊 Asset Sentinel (Prototype v1.0)
 Kırklareli Üniversitesi Yazılım Mühendisliği öğrencisi olarak geliştirdiğim, gerçek zamanlı kripto ve emtia takip dashboard'u.
 
 ## 🚀 Özellikler
