@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Bitcoin (BTC)",
+        "ticker": "BTC/USDT",
+        "type": "crypto",
+        "market": "Binance",
+        "symbol": "BTC"
+    },
+    {
+        "name": "Ethereum (ETH)",
+        "ticker": "ETH/USDT",
+        "type": "crypto",
+        "market": "Binance",
+        "symbol": "ETH"
+    },
+    {
+        "name": "Solana (SOL)",
+        "ticker": "SOL/USDT",
+        "type": "crypto",
+        "market": "Binance",
+        "symbol": "SOL"
+    },
+    {
+        "name": "Tether (USDT)",
+        "ticker": "USDT/USDC",
+        "type": "crypto",
+        "market": "Binance",
+        "symbol": "USDT"
+    },
+    {
+        "name": "Gold (XAU)",
+        "ticker": "GC=F",
+        "type": "commodity",
+        "market": "COMEX",
+        "symbol": "XAU"
+    },
+    {
+        "name": "Xripple (XRP)",
+        "ticker": "XRP/USDT",
+        "type": "crypto",
+        "market": "Binance",
+        "symbol": "XRP"
+    }
+]
