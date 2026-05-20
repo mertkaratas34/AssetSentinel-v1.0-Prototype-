@@ -25,6 +25,7 @@ class UIManager:
         
         table.add_column("Asset", style="cyan", no_wrap=True)
         table.add_column("Price", justify="right", style="green")
+        table.add_column("Δ%", justify="right", style="bright_blue")
         table.add_column("Market", justify="center", style="magenta")
         table.add_column("Status", justify="right", style="yellow")
         table.add_column("My Balance", justify="right", style="bright_yellow")
@@ -34,10 +35,19 @@ class UIManager:
             price_display = f"${asset['price']:,.2f}" if asset.get('price') else "Fetching..."
             balance = asset.get('balance', 0)
             total_value = asset.get('total_value', 0)
+            change_pct = asset.get('change_pct')
+
+            if change_pct is None:
+                change_display = "—"
+            elif change_pct >= 0:
+                change_display = Text(f"+{change_pct:,.2f}%", style="bold green")
+            else:
+                change_display = Text(f"{change_pct:,.2f}%", style="bold red")
             
             table.add_row(
                 asset['name'], 
-                price_display, 
+                price_display,
+                change_display,
                 asset['market'],
                 "● Active" if asset.get('price') else "○ Syncing",
                 f"{balance:.4f}",
@@ -56,7 +66,7 @@ class UIManager:
         # Ana tabloyu bas
         self.console.print(self.create_asset_table(assets_data))
         
-        # 💰 TOTAL WEALTH PANELİ
+        # TOTAL WEALTH PANELİ
         wealth_text = Text.assemble(
             ("TOTAL PORTFOLIO VALUE: ", "bold white"),
             (f"${total_wealth:,.2f}", "bold blink green")
