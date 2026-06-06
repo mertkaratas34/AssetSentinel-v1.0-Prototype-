@@ -1,6 +1,7 @@
 import time
 import json
 from data_fetcher import fetch_crypto, fetch_commodity, fetch_btcturk_balances
+from logger import log_crypto_snapshot
 from ui_manager import UIManager
 
 def main():
@@ -30,7 +31,7 @@ def main():
             
             # 2. Her bir varlık için fiyat, değişim ve bakiye hesapla
             for asset in assets:
-                # USDT sabitlemesi (1 USDT her zaman 1 dolardır)
+                # USDT sabitlemesi
                 if asset['symbol'] == 'USDT':
                     price = 1.0
                 elif asset['type'] == 'crypto':
@@ -51,6 +52,10 @@ def main():
                 # Mevcut fiyatı kaydet
                 if price is not None:
                     prev_prices[asset['ticker']] = price
+
+                # Kripto verisini tarihli log dosyasına yaz
+                if asset['type'] == 'crypto':
+                    log_crypto_snapshot(asset, price, amount) # altini yazdirmiyo bura kontrol
                 
                 # Veriyi tabloya uygun formata getir
                 processed_data.append({
